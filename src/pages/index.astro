@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import VisitDoctor from '../components/VisitDoctor.astro';
+import Devices from '../components/Devices.astro';
+import Deployment from '../components/Deployment.astro';
+import PilotCta from '../components/PilotCta.astro';
+import Faq from '../components/Faq.astro';
+import Problem from '../components/Problem.astro';
+import Flow from '../components/Flow.astro';
+
+const title = 'MediPrompt — Nurse-call dan komunikasi klinis untuk rumah sakit';
+const description =
+  'MediPrompt membawa setiap panggilan pasien ke pusat pemantauan perawat dan bekerja berdampingan dengan SIMRS rumah sakit. Diterbitkan oleh Risentera.';
+---
+<Base title={title} description={description}>
+  <Header />
+  <main>
+    <Hero />
+    <Problem />
+    <Flow />
+    <VisitDoctor />
+    <Devices />
+    <Deployment />
+    <PilotCta />
+    <Faq />
+  </main>
+  <Footer />
+</Base>

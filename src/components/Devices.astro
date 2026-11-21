@@ -1,0 +1,53 @@
+<section class="section section--alt" id="perangkat" aria-labelledby="perangkat-title">
+  <div class="container">
+    <span class="eyebrow">Perangkat di kamar</span>
+    <h2 id="perangkat-title">Tiga perangkat terpisah di setiap kamar.</h2>
+    <p class="badge">Dalam tahap pilot</p>
+    <p class="lead">
+      Setiap perangkat didaftarkan ke satu kamar dan terhubung ke dasbor perawat.
+      Perangkat masih dalam tahap pilot; spesifikasi dibahas bersama rumah sakit
+      saat pilot.
+    </p>
+    <ul class="devices">
+      <li>
+        <h3>Tombol panggil</h3>
+        <p>Pasien menekan tombol, dan permintaan bantuan langsung tampil di dasbor perawat.</p>
+      </li>
+      <li>
+        <h3>Mikrofon</h3>
+        <p>Menangkap pesan suara pasien, dan dapat memulai sesi Visit Doctor dari kamar.</p>
+      </li>
+      <li>
+        <h3>Layar teleprompter</h3>
+        <p>Memberi tahu pasien apa yang sedang terjadi. Layar hanya menampilkan:</p>
+        <ul class="screen">
+          <li>Permintaan terkirim</li>
+          <li>Rekaman Visit Doctor sedang berlangsung</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .badge { margin-bottom: var(--sp-4); }
+  .devices { list-style: none; padding: 0; margin: var(--sp-8) 0 0; display: grid; gap: var(--sp-4); }
+  .devices > li {
+    background: var(--c-bg);
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius);
+    padding: var(--sp-6);
+  }
+  .devices h3 { font-size: var(--fs-lg); margin-bottom: var(--sp-2); }
+  .devices p { color: var(--c-slate); margin: 0; }
+  .screen { list-style: none; padding: 0; margin: var(--sp-4) 0 0; display: grid; gap: var(--sp-2); }
+  .screen li {
+    padding: var(--sp-2) var(--sp-3);
+    border-left: 3px solid var(--c-teal);
+    background: var(--c-teal-soft);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: var(--fs-sm);
+  }
+  @media (min-width: 48rem) { .devices { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
+</style>

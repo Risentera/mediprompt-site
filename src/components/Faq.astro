@@ -1,0 +1,69 @@
+---
+const items = [
+  {
+    q: 'Apakah MediPrompt menggantikan SIMRS kami?',
+    a: 'Tidak. MediPrompt bekerja berdampingan dengan SIMRS rumah sakit Anda. SIMRS tetap mengelola data pasien, tagihan, dan farmasi; MediPrompt menangani panggilan pasien dan komunikasi di ruang perawatan.',
+  },
+  {
+    q: 'Apakah saran AI menggantikan penilaian perawat?',
+    a: 'Tidak. Tingkat urgensi dari AI hanya bersifat saran. Perawat yang memutuskan, dan urgensi yang ditetapkan perawat selalu didahulukan.',
+  },
+  {
+    q: 'Perangkat apa yang dibutuhkan di kamar?',
+    a: 'Tiga perangkat terpisah di samping tempat tidur: tombol panggil, mikrofon, dan layar teleprompter, yang terhubung ke dasbor perawat. Perangkat ini masih dalam tahap pilot.',
+  },
+  {
+    q: 'Di mana data kami disimpan?',
+    a: 'Setiap rumah sakit mendapat instalasi terdedikasi, dengan server dan basis data sendiri. Data tidak digabung dengan rumah sakit lain.',
+  },
+  {
+    q: 'Berapa biayanya?',
+    a: 'Biaya disesuaikan dengan kebutuhan dan jumlah kamar. Hubungi kami untuk penawaran.',
+  },
+  {
+    q: 'Apakah MediPrompt bertukar data dengan SIMRS kami?',
+    a: 'MediPrompt berjalan berdampingan dengan SIMRS Anda. Kebutuhan pertukaran data dibahas bersama saat pilot.',
+  },
+];
+---
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <span class="eyebrow">FAQ</span>
+    <h2 id="faq-title">Pertanyaan yang sering diajukan</h2>
+    <div class="faq">
+      {items.map(({ q, a }) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq { max-width: 48rem; border-top: 1px solid var(--c-line); }
+  details { border-bottom: 1px solid var(--c-line); }
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-4);
+    min-height: 44px;
+    padding-block: var(--sp-4);
+    font-weight: 600;
+    font-size: var(--fs-lg);
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    flex: none;
+    font-size: var(--fs-xl);
+    font-weight: 400;
+    color: var(--c-teal);
+  }
+  details[open] summary::after { content: '\2212'; }
+  details p { color: var(--c-slate); max-width: var(--measure); padding-bottom: var(--sp-2); }
+</style>

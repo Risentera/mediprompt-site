@@ -1,0 +1,33 @@
+<section class="section" id="visit-doctor" aria-labelledby="visit-doctor-title">
+  <div class="container">
+    <span class="eyebrow">Visit Doctor</span>
+    <h2 id="visit-doctor-title">Percakapan visite dokter, tercatat sebagai transkrip.</h2>
+    <p class="lead">
+      Sesi Visit Doctor merekam percakapan antara dokter dan pasien saat visite.
+      Hasil pengenalan suara dilampirkan ke sesi tersebut sebagai transkrip, dan
+      sesi pun selesai.
+    </p>
+    <ul class="points">
+      <li>
+        <h3>Dimulai oleh staf atau dari kamar</h3>
+        <p>Sesi dapat dimulai oleh staf, atau oleh mikrofon yang terdaftar di kamar pasien.</p>
+      </li>
+      <li>
+        <h3>Terikat pada kamarnya</h3>
+        <p>Setiap sesi tetap tercatat pada kamar tempat sesi itu dimulai.</p>
+      </li>
+      <li>
+        <h3>Satu transkrip utuh</h3>
+        <p>Transkrip berupa satu teks percakapan. Bila ada beberapa pembicara, ucapan mereka tidak dipisahkan per orang.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .points { list-style: none; padding: 0; margin: var(--sp-8) 0 0; display: grid; gap: var(--sp-6); }
+  .points li { border-top: 2px solid var(--c-teal); padding-top: var(--sp-4); }
+  .points h3 { font-size: var(--fs-lg); margin-bottom: var(--sp-2); }
+  .points p { color: var(--c-slate); margin: 0; }
+  @media (min-width: 48rem) { .points { grid-template-columns: repeat(3, 1fr); gap: var(--sp-8); } }
+</style>

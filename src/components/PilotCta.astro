@@ -1,0 +1,34 @@
+---
+import { DEMO_MAILTO as mailto, EMAIL } from '../contact';
+---
+<section class="section section--alt" id="pilot" aria-labelledby="pilot-title">
+  <div class="container">
+    <div class="cta">
+      <span class="eyebrow">Ajukan pilot</span>
+      <h2 id="pilot-title">Lihat MediPrompt bekerja di rumah sakit Anda.</h2>
+      <p class="lead">
+        Kirim permintaan demo pilot ke tim Risentera. Kami akan menjadwalkan demonstrasi
+        dan membahas kebutuhan ruang perawatan Anda.
+      </p>
+      <p class="price">Hubungi kami untuk penawaran.</p>
+      <a href={mailto} class="btn btn--primary">Ajukan demo pilot</a>
+      <p class="email">atau email langsung ke <a href={mailto}>{EMAIL}</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    max-width: 44rem;
+    padding: var(--sp-8) var(--sp-6);
+    background: var(--c-bg);
+    border: 1px solid var(--c-line);
+    border-top: 4px solid var(--c-teal);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  .price { font-weight: 600; margin-bottom: var(--sp-6); }
+  .email { margin: var(--sp-4) 0 0; font-size: var(--fs-sm); color: var(--c-slate); }
+  @media (max-width: 30rem) { .cta .btn { width: 100%; } }
+  @media (min-width: 48rem) { .cta { padding: var(--sp-12); } }
+</style>

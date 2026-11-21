@@ -1,0 +1,32 @@
+<section class="section section--alt" aria-labelledby="masalah-title">
+  <div class="container">
+    <span class="eyebrow">Masalah</span>
+    <h2 id="masalah-title">Panggilan pasien mudah hilang di tengah kesibukan bangsal.</h2>
+    <p class="lead">
+      Bel pasien berbunyi, tetapi tidak selalu jelas siapa yang memanggil, apa yang
+      dibutuhkan, dan siapa yang sedang menanganinya.
+    </p>
+    <ul class="problems">
+      <li>
+        <h3>Terlewat</h3>
+        <p>Panggilan berbunyi saat perawat sedang di kamar lain, lalu tidak ada jejak bahwa pasien pernah meminta bantuan.</p>
+      </li>
+      <li>
+        <h3>Tidak jelas</h3>
+        <p>Bel hanya memberi tahu ada panggilan. Perawat baru tahu kebutuhannya setelah tiba di kamar.</p>
+      </li>
+      <li>
+        <h3>Tanpa penanggung jawab</h3>
+        <p>Semua mendengar, tetapi tidak ada yang tercatat mengambil alih. Setiap orang mengira rekannya sudah datang.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .problems { list-style: none; margin: var(--sp-8) 0 0; padding: 0; display: grid; gap: var(--sp-4); }
+  .problems li { background: var(--c-bg); border: 1px solid var(--c-line); border-left: 3px solid var(--c-teal); border-radius: var(--radius); padding: var(--sp-6); }
+  .problems h3 { font-size: var(--fs-lg); margin-bottom: var(--sp-2); }
+  .problems p { margin: 0; color: var(--c-slate); }
+  @media (min-width: 48rem) { .problems { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
+</style>

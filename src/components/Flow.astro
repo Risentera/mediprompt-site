@@ -1,0 +1,113 @@
+---
+// Fictional, non-identifying mock data. Order mirrors the real queue:
+// emergency first, then undetermined, then non-emergency; oldest first within each.
+const queue = [
+  { room: 'Kamar 204', urgency: 'Darurat', tone: 'high', source: 'Saran AI', note: '"Sesak, tolong cepat."', state: 'Belum diambil' },
+  { room: 'Kamar 112', urgency: 'Belum ditentukan', tone: 'mid', source: 'Menunggu saran', note: 'Tanpa pesan suara', state: 'Belum diambil' },
+  { room: 'Kamar 309', urgency: 'Tidak darurat', tone: 'low', source: 'Penilaian perawat', note: '"Infus hampir habis."', state: 'Ditangani Perawat A' },
+];
+---
+<section id="alur" class="section" aria-labelledby="alur-title">
+  <div class="container">
+    <span class="eyebrow">Alur permintaan</span>
+    <h2 id="alur-title">Dari tombol di kamar sampai tuntas, dengan satu penanggung jawab.</h2>
+    <p class="lead">
+      Setiap tekanan tombol menjadi permintaan bantuan yang tercatat dan terlihat di
+      pusat pemantauan perawat.
+    </p>
+
+    <div class="layout">
+      <ol class="steps">
+        <li>
+          <h3>Pasien menekan tombol</h3>
+          <p>Permintaan langsung tersimpan dan tampil di pusat pemantauan saat itu juga, bahkan bila pasien tidak berbicara.</p>
+        </li>
+        <li>
+          <h3>Pesan suara, bila ada</h3>
+          <p>Pasien dapat menyampaikan kebutuhannya lewat mikrofon kamar. Tekan tombol sekali lagi untuk berhenti merekam.</p>
+        </li>
+        <li>
+          <h3>Saran urgensi dari AI</h3>
+          <p>Pesan suara diubah menjadi transkrip disertai saran urgensi: darurat, tidak darurat, atau belum ditentukan. Ini hanya saran; perawat yang memutuskan.</p>
+        </li>
+        <li>
+          <h3>Satu perawat mengambil alih</h3>
+          <p>Seorang perawat mengambil permintaan sehingga jelas siapa yang bertanggung jawab. Hanya satu perawat pada satu waktu.</p>
+        </li>
+        <li>
+          <h3>Perawat menilai urgensi</h3>
+          <p>Perawat dapat mencatat penilaian urgensinya sendiri, dan penilaian perawat selalu diutamakan di atas saran AI.</p>
+        </li>
+        <li>
+          <h3>Perawat menuntaskan</h3>
+          <p>Hanya perawat yang mengambil alih yang dapat menandai permintaan selesai.</p>
+        </li>
+      </ol>
+
+      <figure class="mock">
+        <div class="mock-frame" role="img" aria-label="Contoh antrean pusat pemantauan dengan data fiktif: Kamar 204, saran urgensi darurat, belum diambil; Kamar 112, tanpa pesan suara, menunggu saran, urgensi belum ditentukan, belum diambil; Kamar 309, penilaian perawat tidak darurat, ditangani Perawat A.">
+          <div class="mock-head" aria-hidden="true">
+            <span>Pusat pemantauan</span>
+            <span class="mock-ward">Bangsal contoh</span>
+          </div>
+          <ul class="queue" aria-hidden="true">
+            {queue.map((q) => (
+              <li class={`row tone-${q.tone}`}>
+                <div class="row-top">
+                  <strong>{q.room}</strong>
+                  <span class="pill">{q.urgency}</span>
+                </div>
+                <div class="row-meta">{q.source} · {q.note}</div>
+                <div class="row-state">{q.state}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <figcaption>Ilustrasi dengan data fiktif. Darurat di atas, lalu yang belum ditentukan, lalu tidak darurat; yang paling lama menunggu lebih dulu.</figcaption>
+      </figure>
+    </div>
+
+    <div class="notes">
+      <p><strong>Tidak dibiarkan menggantung.</strong> Permintaan yang belum diambil dalam batas waktu tertentu dinaikkan ke kepala perawat.</p>
+      <p><strong>Hanya untuk yang berwenang.</strong> Permintaan hanya terlihat oleh perawat yang ditugaskan di kamar tersebut dan kepala perawat yang berwenang.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .layout { display: grid; gap: var(--sp-12); margin-top: var(--sp-12); align-items: start; }
+  @media (min-width: 60rem) { .layout { grid-template-columns: 1.1fr 1fr; } .mock { position: sticky; top: var(--sp-8); } }
+
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps li { counter-increment: step; position: relative; padding: 0 0 var(--sp-6) var(--sp-12); border-left: 2px solid var(--c-line); margin-left: var(--sp-4); }
+  .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: calc(-1 * var(--sp-4) - 1px); top: 0;
+    width: 2rem; height: 2rem; border-radius: 999px;
+    display: grid; place-items: center;
+    background: var(--c-teal); color: #fff; font-weight: 700; font-size: var(--fs-sm);
+  }
+  .steps h3 { font-size: var(--fs-lg); margin-bottom: var(--sp-1); padding-top: var(--sp-1); }
+  .steps p { margin: 0; color: var(--c-slate); }
+
+  .mock { margin: 0; }
+  .mock-frame { border: 1px solid var(--c-line); border-radius: var(--radius-lg); background: var(--c-bg); box-shadow: var(--shadow); overflow: hidden; }
+  .mock-head { display: flex; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); background: var(--c-navy); color: #fff; font-weight: 600; font-size: var(--fs-sm); }
+  .mock-ward { opacity: 0.75; font-weight: 400; }
+  .queue { list-style: none; margin: 0; padding: var(--sp-3); display: grid; gap: var(--sp-3); }
+  .row { border: 1px solid var(--c-line); border-left: 4px solid var(--tone); border-radius: var(--radius-sm); padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); }
+  .row-top { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-2); }
+  .row-top strong { font-size: var(--fs-base); }
+  .pill { padding: 0 var(--sp-2); border-radius: 999px; background: var(--tone-bg); color: var(--tone-ink); font-weight: 600; white-space: nowrap; }
+  .row-meta { color: var(--c-slate); margin-top: var(--sp-1); }
+  .row-state { margin-top: var(--sp-2); font-weight: 600; color: var(--c-navy); }
+  .tone-high { --tone: #b42318; --tone-bg: #fdecea; --tone-ink: #912018; }
+  .tone-mid { --tone: #b54708; --tone-bg: #fef4e6; --tone-ink: #93370d; }
+  .tone-low { --tone: var(--c-teal); --tone-bg: var(--c-teal-soft); --tone-ink: var(--c-teal-dark); }
+  figcaption { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--c-slate); }
+
+  .notes { display: grid; gap: var(--sp-4); margin-top: var(--sp-12); }
+  .notes p { margin: 0; padding: var(--sp-4) var(--sp-6); background: var(--c-teal-soft); border-radius: var(--radius); }
+  @media (min-width: 48rem) { .notes { grid-template-columns: 1fr 1fr; } }
+</style>

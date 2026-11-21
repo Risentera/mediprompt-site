@@ -1,0 +1,28 @@
+---
+import { DEMO_MAILTO as mailto } from '../contact';
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <span class="eyebrow">Nurse-call &amp; komunikasi klinis</span>
+    <h1 id="hero-title">Setiap panggilan pasien sampai ke perawat yang tepat.</h1>
+    <p class="lead">
+      MediPrompt adalah sistem nurse-call dan komunikasi klinis untuk rumah sakit.
+      Panggilan dari kamar pasien langsung tampil di pusat pemantauan, satu perawat
+      mengambil alih dan menuntaskannya. MediPrompt bekerja berdampingan dengan SIMRS
+      rumah sakit Anda, bukan menggantikannya.
+    </p>
+    <div class="actions">
+      <a href={mailto} class="btn btn--primary">Ajukan demo pilot</a>
+      <a href="#alur" class="btn btn--secondary">Lihat alur permintaan</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: var(--sp-16) var(--sp-16); border-bottom: 1px solid var(--c-line); }
+  .hero h1 { max-width: 20ch; margin-bottom: var(--sp-6); }
+  .hero .lead { margin-bottom: var(--sp-8); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+  @media (max-width: 30rem) { .actions .btn { width: 100%; } }
+  @media (min-width: 48rem) { .hero { padding-block: var(--sp-24); } }
+</style>

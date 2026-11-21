@@ -1,0 +1,20 @@
+---
+import { DEMO_MAILTO as mailto } from '../contact';
+---
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand">
+      <img src="/mediprompt-logo.png" alt="MediPrompt" width="148" height="60" />
+    </a>
+    <a href={mailto} class="header-cta">Ajukan demo</a>
+  </div>
+</header>
+
+<style>
+  .site-header { border-bottom: 1px solid var(--c-line); background: var(--c-bg); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); padding-block: var(--sp-3); }
+  .brand { display: inline-block; }
+  .brand img { width: 120px; height: auto; }
+  .header-cta { font-weight: 600; font-size: var(--fs-sm); }
+  @media (min-width: 48rem) { .brand img { width: 148px; } }
+</style>
