@@ -1,10 +1,11 @@
 ---
 import { DEMO_MAILTO as mailto } from '../contact';
+const base = import.meta.env.BASE_URL;
 ---
 <header class="site-header">
   <div class="container bar">
-    <a href="/" class="brand">
-      <img src="/mediprompt-logo.png" alt="MediPrompt" width="148" height="60" />
+    <a href={`${base}/`} class="brand">
+      <img src={`${base}/mediprompt-logo.png`} alt="MediPrompt" width="148" height="60" />
     </a>
     <a href={mailto} class="header-cta">Ajukan demo</a>
   </div>

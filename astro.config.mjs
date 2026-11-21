@@ -2,8 +2,9 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Domain not chosen yet. Set e.g. 'https://example.id' here and the layout
-  // starts emitting <link rel="canonical"> and og:url automatically.
-  site: undefined,
+  // GitHub Pages project site. Change `site`/`base` together when a custom
+  // domain is chosen; with a domain, drop `base` so URLs are at root.
+  site: 'https://risentera.github.io',
+  base: '/mediprompt-site',
   output: 'static',
 });
